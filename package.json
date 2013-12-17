@@ -1,0 +1,20 @@
+{
+  "name": "docdiff",
+  "version": "0.0.1",
+  "description": "Evaluate the difference between two documents (objects)",
+  "main": "lib/docdiff.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "keywords": [
+    "diff"
+  ],
+  "author": "Thom Seddon",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.15.1",
+    "should": "~2.1.1"
+  }
+}
