@@ -33,6 +33,8 @@ var diff = docdiff(original, now);
 // ]
 ```
 
+See tests for more examples
+
 ## Spec
 
 docdiff will return an array of changes, each change will comprise of the following:
@@ -45,6 +47,13 @@ docdiff will return an array of changes, each change will comprise of the follow
   - **original** *[mixed]* The original value (undefined for type `add`)
   - **added** *[array]* Array of elements added (undefined for anything other than `primitiveArray`)
   - **removed** *[array]* Array of elements removed (undefined for anything other than `primitiveArray`)
+
+## Notes on Arrays
+
+Diffing arrays is hard because there is no universal way of identifing which value in the new array corresponds to which value in the original array (positions may have changed).
+Subsequently, docdiff is currently naive to changes in arrays that contain anything other than primitives. If the changed array contains ONLY primitives, the type will be `primitiveArray` and the values object will contain both `added` and `removed` for further inspection.
+However, if an array contains only objects, docdiff will simply return the current and original arrays. You may add you're own post processing of this, for example if you're documents inside the array had id's, you will be able to identify changes properly (pass before and after back to docdiff).
+the `mixedArray` type will be used when the array contains neither objects or primitves exclusively.
 
 ## Author
 
